@@ -23,10 +23,9 @@ test('registers plugin metadata and settings link for admin UI', async () => {
   adminPlugin.register(app);
   adminPlugin.bootstrap(app);
 
-  assert.deepEqual(pluginPayload, {
-    id: 'version-lens',
-    name: 'Version Lens',
-  });
+  assert.equal(pluginPayload.id, 'version-lens');
+  assert.equal(pluginPayload.name, 'Version Lens');
+  assert.equal(typeof pluginPayload.icon, 'function');
 
   assert.equal(settingsSection, 'global');
   assert.equal(settingsPayload.id, 'version-lens');
