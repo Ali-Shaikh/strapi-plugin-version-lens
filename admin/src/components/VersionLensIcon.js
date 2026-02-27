@@ -1,9 +1,7 @@
 'use strict';
 
-const React = require('react');
-
-const VersionLensIcon = () => {
-  return React.createElement(
+const createIcon = (React) =>
+  React.createElement(
     'svg',
     {
       xmlns: 'http://www.w3.org/2000/svg',
@@ -44,6 +42,17 @@ const VersionLensIcon = () => {
       strokeLinejoin: 'round',
     })
   );
+
+const VersionLensIcon = () => {
+  let React;
+
+  try {
+    React = require('react');
+  } catch {
+    return null;
+  }
+
+  return createIcon(React);
 };
 
 module.exports = VersionLensIcon;
