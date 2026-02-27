@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/version-lens.png" alt="Version Lens logo" width="180" />
+  <img src="https://raw.githubusercontent.com/Ali-Shaikh/strapi-plugin-version-lens/main/assets/version-lens.png" alt="Version Lens logo" width="180" />
 </p>
 
 <h1 align="center">Strapi v5 - Plugin Version Lens</h1>
@@ -11,7 +11,7 @@
 <hr />
 
 <p align="center">
-  <img src="assets/Screenshot01.png" alt="Version Lens admin preview" width="100%" />
+  <img src="https://raw.githubusercontent.com/Ali-Shaikh/strapi-plugin-version-lens/main/assets/Screenshot01.png" alt="Version Lens admin preview" width="100%" />
 </p>
 
 <hr />

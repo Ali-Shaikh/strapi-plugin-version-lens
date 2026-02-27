@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-version-lens",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Strapi plugin for app version, runtime, and deployment metadata in admin settings.",
   "type": "commonjs",
   "main": "./dist/server/index.js",
@@ -40,7 +40,7 @@
   },
   "files": [
     "dist",
-    "assets",
+    "assets/version-lens-icon.png",
     "README.md"
   ],
   "keywords": [
@@ -54,6 +54,9 @@
     "deployment",
     "observability"
   ],
+  "dependencies": {
+    "@strapi/design-system": "^2.1.2"
+  },
   "license": "MIT",
   "engines": {
     "node": ">=20.0.0 <=24.x.x"
