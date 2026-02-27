@@ -1,0 +1,84 @@
+{
+  "name": "strapi-plugin-version-lens",
+  "version": "1.0.0",
+  "description": "Strapi v5 admin plugin for app version visibility with runtime and build metadata.",
+  "type": "commonjs",
+  "main": "./dist/server/index.js",
+  "author": "Ali Shaikh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ali-Shaikh/strapi-plugin-version-lens.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ali-Shaikh/strapi-plugin-version-lens/issues"
+  },
+  "homepage": "https://github.com/Ali-Shaikh/strapi-plugin-version-lens#readme",
+  "scripts": {
+    "build": "strapi-plugin build",
+    "watch": "strapi-plugin watch",
+    "watch:link": "strapi-plugin watch:link",
+    "verify": "strapi-plugin verify",
+    "test": "node --test --test-concurrency=1",
+    "test:ci": "npm run test",
+    "prepack": "npm run build",
+    "pack:check": "npm pack --dry-run"
+  },
+  "exports": {
+    "./strapi-admin": {
+      "source": "./admin/src/index.js",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": {
+      "source": "./server/src/index.js",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "assets",
+    "README.md"
+  ],
+  "keywords": [
+    "strapi",
+    "plugin",
+    "admin",
+    "version",
+    "metadata",
+    "release",
+    "build",
+    "deployment",
+    "observability"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0 <=24.x.x"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@strapi/sdk-plugin": "^5.4.0",
+    "@strapi/strapi": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "styled-components": "^6.0.0",
+    "typescript": "^5.0.0"
+  },
+  "strapi": {
+    "name": "version-lens",
+    "displayName": "Version Lens",
+    "description": "Admin settings page for app version, runtime details, and deployment metadata.",
+    "icon": "assets/version-lens-icon.svg",
+    "kind": "plugin"
+  }
+}
