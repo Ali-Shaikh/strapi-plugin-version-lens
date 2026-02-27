@@ -25,6 +25,12 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Use npm 11 for trusted publishing
+        run: |
+          npm i -g npm@^11.5.1
+          npm --version
+          node --version
+
       - name: Ensure Trusted Publishing auth path
         run: |
           npm config delete //registry.npmjs.org/:_authToken || true
