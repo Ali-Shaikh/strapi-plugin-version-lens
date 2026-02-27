@@ -24,7 +24,11 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          registry-url: https://registry.npmjs.org
+
+      - name: Ensure Trusted Publishing auth path
+        run: |
+          npm config delete //registry.npmjs.org/:_authToken || true
+          rm -f .npmrc
 
       - name: Install dependencies
         run: npm ci
