@@ -1,7 +1,7 @@
 {
   "name": "strapi-plugin-version-lens",
   "version": "1.0.0",
-  "description": "Strapi v5 admin plugin for app version visibility with runtime and build metadata.",
+  "description": "Strapi plugin for app version, runtime, and deployment metadata in admin settings.",
   "type": "commonjs",
   "main": "./dist/server/index.js",
   "author": "Ali Shaikh",
@@ -76,7 +76,7 @@
   },
   "strapi": {
     "name": "version-lens",
-    "displayName": "Version Lens",
+    "displayName": "Strapi v5 - Plugin Version Lens",
     "description": "Admin settings page for app version, runtime details, and deployment metadata.",
     "icon": "assets/version-lens-icon.png",
     "kind": "plugin"

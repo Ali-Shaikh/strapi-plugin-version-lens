@@ -1,35 +1,50 @@
-# strapi-plugin-version-lens
+<p align="center">
+  <img src="assets/version-lens.png" alt="Version Lens logo" width="180" />
+</p>
 
-Version Lens is a Strapi v5 plugin that adds a branded **Version Lens** page in Admin Settings for runtime and build metadata visibility.
+<h1 align="center">Strapi v5 - Plugin Version Lens</h1>
+
+<p align="center">
+  Version Lens adds a dedicated admin settings page for app version, runtime, and deployment metadata.
+</p>
+
+<hr />
+
+<p align="center">
+  <img src="assets/Screenshot01.png" alt="Version Lens admin preview" width="100%" />
+</p>
+
+<hr />
+
+## Why Version Lens
+
+- Clear release visibility inside Strapi admin
+- Fast diagnostics for deployments and environment drift
+- Copy-ready version and commit values
+- Lightweight setup with optional env key customization
 
 ## Features
 
-- Settings menu entry: `Settings -> Global -> Version Lens`
-- Admin-only endpoint: `GET /version-lens/info`
-- Metadata fields:
-  - app version, name, and description (from host app `package.json`)
+- Settings path: `Settings -> Global -> Version Lens`
+- Authenticated admin API route: `GET /version-lens/info`
+- Shows:
+  - app name, version, description (from host app `package.json`)
   - Strapi version
-  - Node version
-  - environment
-  - commit SHA (from env)
-  - build date (from env)
+  - Node.js version
+  - runtime environment
+  - commit SHA
+  - build date
+  - generated timestamp
 
-## Install in a Strapi app
+## Installation
 
-1. Add dependency:
+1. Install:
 
 ```bash
 npm install strapi-plugin-version-lens
 ```
 
-Local package testing (without publishing):
-
-```bash
-npm pack
-npm install /path/to/strapi-plugin-version-lens-1.0.0.tgz
-```
-
-2. Enable plugin in `config/plugins.ts`:
+2. Enable plugin in your Strapi app `config/plugins.ts`:
 
 ```ts
 export default () => ({
@@ -43,29 +58,55 @@ export default () => ({
 });
 ```
 
-Legacy config key support: `release-radar` and `version-settings` are still read as fallback during migration.
-
 3. Restart Strapi.
 
-## Optional environment variables
+## Local Testing (Before Publish)
+
+```bash
+npm pack
+npm install /path/to/strapi-plugin-version-lens-1.0.0.tgz
+```
+
+## Configuration
+
+You can control env resolution order:
+
+- `commitShaEnvKeys`: list of env keys checked for commit SHA
+- `buildDateEnvKeys`: list of env keys checked for build date
+
+Default supported keys:
 
 - Commit SHA: `GIT_COMMIT_SHA`, `CI_COMMIT_SHA`, `VERCEL_GIT_COMMIT_SHA`
 - Build date: `BUILD_DATE`, `CI_BUILD_DATE`, `VERCEL_BUILD_DATE`
 
-You can override env key priority via plugin config.
+Legacy config keys are still supported as fallback:
 
-## Tests and CI
+- `release-radar`
+- `version-settings`
 
-- Run local tests: `npm test`
-- Validate package output: `npm run pack:check`
-- CI runs tests and packaging checks on push/PR for Node 20, 22, and 24.
+## API Response Example
+
+```json
+{
+  "version": "1.2.3",
+  "name": "my-strapi-app",
+  "description": "My project",
+  "strapiVersion": "5.x.x",
+  "nodeVersion": "v22.x.x",
+  "environment": "production",
+  "commitSha": "a1b2c3d",
+  "buildDate": "2026-02-27T12:00:00.000Z",
+  "generatedAt": "2026-02-27T12:15:00.000Z"
+}
+```
+
+## Development and CI
+
+- Run tests: `npm test`
+- Validate package contents: `npm run pack:check`
+- Build plugin: `npm run build`
 
 ## Project Links
 
-- GitHub: https://github.com/Ali-Shaikh/strapi-plugin-version-lens
-- Issues: https://github.com/Ali-Shaikh/strapi-plugin-version-lens/issues
-
-## Notes
-
-- The endpoint is an authenticated admin route.
-- Host app metadata is read from the host project's `package.json`.
+- GitHub: [Ali-Shaikh/strapi-plugin-version-lens](https://github.com/Ali-Shaikh/strapi-plugin-version-lens)
+- Issues: [Report issues](https://github.com/Ali-Shaikh/strapi-plugin-version-lens/issues)
