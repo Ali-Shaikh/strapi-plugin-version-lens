@@ -9,6 +9,7 @@ module.exports = {
     app.registerPlugin({
       id: pluginId,
       name: pluginName,
+      icon: VersionLensIcon,
     });
   },
 

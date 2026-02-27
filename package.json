@@ -78,7 +78,7 @@
     "name": "version-lens",
     "displayName": "Version Lens",
     "description": "Admin settings page for app version, runtime details, and deployment metadata.",
-    "icon": "assets/version-lens-icon.svg",
+    "icon": "assets/version-lens-icon.png",
     "kind": "plugin"
   }
 }

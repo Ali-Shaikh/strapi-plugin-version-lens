@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Layouts, Page, useFetchClient, useNotification } from '@strapi/strapi/admin';
 import { Box, Button, Divider, Flex, Loader, Typography } from '@strapi/design-system';
+import versionLensIcon from '../assets/version-lens-icon.png';
 
 const Field = ({ label, value, onCopy }) => {
   return (
@@ -87,7 +88,14 @@ const VersionSettingsPage = () => {
   return (
     <Page.Main>
       <Layouts.Header
-        title="Version Lens"
+        title={
+          <Flex alignItems="center" gap={3}>
+            <img src={versionLensIcon} alt="" aria-hidden="true" width={28} height={28} />
+            <Typography variant="alpha" tag="h1">
+              Version Lens
+            </Typography>
+          </Flex>
+        }
         subtitle="App version, runtime, and deployment metadata"
         primaryAction={
           <Button type="button" size="S" loading={refreshing} onClick={() => void loadVersionInfo(true)}>
