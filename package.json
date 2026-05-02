@@ -76,7 +76,7 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
     "styled-components": "^6.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^6.0.0"
   },
   "strapi": {
     "name": "version-lens",
